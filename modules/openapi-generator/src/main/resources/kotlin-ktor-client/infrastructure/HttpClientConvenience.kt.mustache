@@ -91,7 +91,7 @@ internal suspend inline fun <reified T> request(
 
     val httpClient = HttpClient {
         install(JsonFeature) {
-            this.serializer = KotlinxSerializer()
+            this.serializer = KotlinxSerializer(Json { ignoreUnknownKeys = true })
         }
         install(Logging) {
             this.logger = logger
